@@ -20,6 +20,7 @@ echo "Do you wish to continue?"
 echo "Press [ENTER] to continue or [Ctrl^C] to abort"
 echo
 
+IFS=
 read -p "Press any key to continue... " -n1 -s
 
 mkdir -p "$CHECKOUT_PATH"
