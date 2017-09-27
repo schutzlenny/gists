@@ -16,11 +16,9 @@ echo "VERSION:       $REPO_VERSION"
 echo "CHECKOUT PATH: $CHECKOUT_PATH"
 echo
 
-read -p "Do you wish to continue? [Y/n] " confirm
-
-if [[ "$confirm" == "n" || "$confirm" == "N" ]]; then
-    exit 0
-fi
+echo "Do you wish to continue?"
+echo "Press [ENTER] to continue or [Ctrl^C] to abort"
+echo
 
 mkdir -p "$CHECKOUT_PATH"
 cd "$CHECKOUT_PATH"
