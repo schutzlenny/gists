@@ -11,7 +11,7 @@ fi
 
 CHECKOUT_PATH="$INSTALL_PATH/src/sisu.sh"
 
-echo "Workspace omnibus installer"
+echo "(╯°□°）╯︵ ┻━┻ Workspace omnibus installer"
 echo
 echo "Install path:  $INSTALL_PATH"
 echo "Checkout path: $CHECKOUT_PATH"
