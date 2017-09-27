@@ -5,7 +5,7 @@ REPO_VERSION="${2-develop}"
 set -e
 
 if [ -z "$INSTALL_PATH" ]; then
-    echo "No install path specified, please provide it as the first argument to this script"
+    echo "ERR: No install path specified, please provide it as the first argument to this script" >&2
     exit 1
 fi
 
