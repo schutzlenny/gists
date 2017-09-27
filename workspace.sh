@@ -26,7 +26,7 @@ read -n1 -s
 mkdir -p "$CHECKOUT_PATH"
 cd "$CHECKOUT_PATH"
 
-git clone git@github.com:simplesurance/sisu.git --depth 1 --branch "$REPO_VERSION" .
+git clone git@github.com:simplesurance/sisu.git --branch "$REPO_VERSION" .
 cd workspace
 make
 make init
