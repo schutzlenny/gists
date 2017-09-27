@@ -12,16 +12,14 @@ fi
 CHECKOUT_PATH="$INSTALL_PATH/src/sisu.sh"
 
 echo "INSTALL PATH:  $INSTALL_PATH"
-echo "VERSION:       $REPO_VERSION"
 echo "CHECKOUT PATH: $CHECKOUT_PATH"
+echo "VERSION:       $REPO_VERSION"
 echo
 
 echo "Do you wish to continue?"
-echo "Press [ENTER] to continue or [Ctrl^C] to abort"
+echo "Press any key to continue or [Ctrl^C] to abort"
 echo
-
-IFS=
-read -p "Press any key to continue... " -n1 -s
+read -n1 -s
 
 mkdir -p "$CHECKOUT_PATH"
 cd "$CHECKOUT_PATH"
