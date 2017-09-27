@@ -9,12 +9,23 @@ if [ -z "$INSTALL_PATH" ]; then
     exit 1
 fi
 
-echo "INSTALL PATH: $INSTALL_PATH"
-echo "VERSION:      $REPO_VERSION"
+CHECKOUT_PATH="$INSTALL_PATH/src/sisu.sh"
+
+echo "INSTALL PATH:  $INSTALL_PATH"
+echo "VERSION:       $REPO_VERSIONTH
+echo "CHECKOUT PATH: $CHECKOUT_PATH"
 echo
 
-mkdir -p "$INSTALL_PATH/src/sisu.sh"
-git clone git@github.com:simplesurance/sisu.git --branch "$REPO_VERSION" "$INSTALL_PATH/src/sisu.sh"
+read -p "Do you wish to continue? [Y/n] " confirm
 
-cd "$INSTALL_PATH/src/sisu.sh/workspace"
+if [[ "$confirm" == "n" || "$confirm" == "N" ]]; then
+    exit 0
+fi
+
+mkdir -p "$CHECKOUT_PATH"
+cd "$CHECKOUT_PATH"
+git clone git@github.com:simplesurance/sisu.git --branch "$REPO_VERSION" .
+
+cd workspace
 make
+make init
