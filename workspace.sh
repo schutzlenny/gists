@@ -11,11 +11,14 @@ fi
 
 CHECKOUT_PATH="$INSTALL_PATH/src/sisu.sh"
 
-echo "(╯°□°）╯︵ ┻━┻ Workspace omnibus installer"
 echo
-echo "Install path:  $INSTALL_PATH"
-echo "Checkout path: $CHECKOUT_PATH"
-echo "Version:       $REPO_VERSION"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo
+echo " (╯°□°）╯︵ ┻━┻ Workspace omnibus installer"
+echo
+echo " Install path:  $INSTALL_PATH"
+echo " Checkout path: $CHECKOUT_PATH"
+echo " Version:       $REPO_VERSION"
 echo
 
 echo "Do you wish to continue?"
