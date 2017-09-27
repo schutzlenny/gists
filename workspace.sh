@@ -11,9 +11,11 @@ fi
 
 CHECKOUT_PATH="$INSTALL_PATH/src/sisu.sh"
 
-echo "INSTALL PATH:  $INSTALL_PATH"
-echo "CHECKOUT PATH: $CHECKOUT_PATH"
-echo "VERSION:       $REPO_VERSION"
+echo "Workspace omnibus installer"
+echo
+echo "Install path:  $INSTALL_PATH"
+echo "Checkout path: $CHECKOUT_PATH"
+echo "Version:       $REPO_VERSION"
 echo
 
 echo "Do you wish to continue?"
@@ -23,8 +25,8 @@ read -n1 -s
 
 mkdir -p "$CHECKOUT_PATH"
 cd "$CHECKOUT_PATH"
-git clone git@github.com:simplesurance/sisu.git --depth 1 --branch "$REPO_VERSION" .
 
+git clone git@github.com:simplesurance/sisu.git --depth 1 --branch "$REPO_VERSION" .
 cd workspace
 make
 make init
