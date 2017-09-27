@@ -12,7 +12,7 @@ fi
 CHECKOUT_PATH="$INSTALL_PATH/src/sisu.sh"
 
 echo
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo
 echo " (╯°□°）╯︵ ┻━┻ Workspace omnibus installer"
 echo
@@ -21,8 +21,8 @@ echo " Checkout path: $CHECKOUT_PATH"
 echo " Version:       $REPO_VERSION"
 echo
 
-echo "Do you wish to continue?"
-echo "Press any key to continue or [Ctrl^C] to abort"
+echo " Do you wish to continue?"
+echo " Press any key to continue or [Ctrl^C] to abort"
 echo
 read -n1 -s
 
