@@ -20,12 +20,13 @@ echo " Install path:  $INSTALL_PATH"
 echo " Checkout path: $CHECKOUT_PATH"
 echo " Version:       $REPO_VERSION"
 echo
-echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo
 echo " Do you wish to continue?"
 echo " Press any key to continue or [Ctrl^C] to abort"
 echo
 read -n1 -s
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+echo
 
 mkdir -p "$CHECKOUT_PATH"
 cd "$CHECKOUT_PATH"
