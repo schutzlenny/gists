@@ -9,6 +9,7 @@ if [ -z "$INSTALL_PATH" ]; then
     exit 1
 fi
 
+INSTALL_PATH="${INSTALL_PATH/#~/$HOME}"
 CHECKOUT_PATH="$INSTALL_PATH/src/sisu.sh"
 
 echo
