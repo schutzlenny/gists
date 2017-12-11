@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name Sisu Claim Linker
 // @namespace Violentmonkey Scripts
-// @match *://*/certificate/*/show
-// @match *://*/certificate/*/edit
+// @match *://*/*/certificate/*/show
+// @match *://*/*/certificate/*/edit
 // @grant none
 // ==/UserScript==
 
@@ -18,7 +18,7 @@ function createButton (el, cert, pin, url) {
   btn.className = 'btn btn-info btn-xs'
   btn.textContent = `File claim`
   btn.style.float = 'right';
-  
+
   btn.addEventListener('click', function (e) {   
     const newForm = $('<form>', {
       'action': '/claims',
@@ -34,7 +34,7 @@ function createButton (el, cert, pin, url) {
     }));
     newForm.appendTo('body').submit();
   })
-  
+
   el.appendChild(btn)
 }
 
