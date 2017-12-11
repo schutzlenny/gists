@@ -19,7 +19,7 @@ function createButton (el, cert, pin, url) {
   btn.textContent = `File claim`
   btn.style.float = 'right';
   
-  btn.addEventListener('click', e => {   
+  btn.addEventListener('click', function (e) {   
     const newForm = $('<form>', {
       'action': '/claims',
       'method': 'post'
