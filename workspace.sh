@@ -34,5 +34,6 @@ cd "$CHECKOUT_PATH"
 
 git clone git@github.com:simplesurance/sisu.git --branch "$REPO_VERSION" .
 cd workspace
+make clean # remove any leftovers from previous installations, if any
 make
 make init
