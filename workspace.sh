@@ -45,7 +45,6 @@ cd "$CHECKOUT_PATH"
 # only clone if we haven't cloned already
 if [ -d .git ]; then
     echo "WARN: Repository clone seems to exist already, skipping..." >&2
-    exit 1
 else
     git clone git@github.com:simplesurance/sisu.git --branch "$REPO_VERSION" .
 fi
