@@ -18,15 +18,15 @@ parse_args() {
 
 function init() {
     echo
-    echo " -> Initializing installer..."
+    echo " -> INFO: Initializing installer..."
 
     if [ ! -d "$INSTALL_PATH" ]; then
-        echo "INFO: Install path does not exist, creating..." >&2
+        echo " -> INFO: Install path does not exist, creating..." >&2
         mkdir -p "$INSTALL_PATH"
     fi
 
     if [ ! -d "$CHECKOUT_PATH" ]; then
-        echo "INFO: Checkout path does not exist, creating..." >&2
+        echo " -> INFO: Checkout path does not exist, creating..." >&2
         mkdir -p "$CHECKOUT_PATH"
     fi
 
@@ -34,7 +34,7 @@ function init() {
     INSTALL_PATH="$(cd "$INSTALL_PATH"; pwd -P)"
     CHECKOUT_PATH="$(cd "$CHECKOUT_PATH"; pwd -P)"
 
-    echo " -> Starting installer..."
+    echo " -> INFO: Starting installer..."
     echo
 }
 
@@ -87,7 +87,7 @@ function prompt_continue() {
 function checkout() {
     # only clone if we haven't cloned already
     if [ -d "${CHECKOUT_PATH}/.git" ]; then
-        echo "WARN: Repository seems to be cloned already, skipping..." >&2
+        echo " -> WARN: Repository seems to be cloned already, skipping..." >&2
     else
         git clone git@github.com:simplesurance/sisu.git --branch "$REPO_VERSION" "$CHECKOUT_PATH"
     fi
