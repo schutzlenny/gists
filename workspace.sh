@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
+SCRIPT_FILE="${SCRIPT_DIR}/$(basename "$0")"
 
 parse_args() {
     INSTALL_PATH="${1-$SCRIPT_DIR}"
@@ -16,48 +17,61 @@ parse_args() {
 }
 
 function init() {
+    echo
+    echo " -> Initializing installer..."
+
     if [ ! -d "$INSTALL_PATH" ]; then
-        echo "WARN: Install path does not exist, creating..."
+        echo "INFO: Install path does not exist, creating..." >&2
         mkdir -p "$INSTALL_PATH"
     fi
 
     if [ ! -d "$CHECKOUT_PATH" ]; then
+        echo "INFO: Checkout path does not exist, creating..." >&2
         mkdir -p "$CHECKOUT_PATH"
     fi
 
     # resolve paths
     INSTALL_PATH="$(cd "$INSTALL_PATH"; pwd -P)"
     CHECKOUT_PATH="$(cd "$CHECKOUT_PATH"; pwd -P)"
+
+    echo " -> Starting installer..."
+    echo
 }
 
 function banner() {
-    echo
-    echo ".======================== WORKSPACE INSTALLER =========================="
-    echo "|"
-    echo "|"
-    echo "|  Install path     $INSTALL_PATH"
-    echo "|  Checkout path    $CHECKOUT_PATH"
-    echo "|  Version          $REPO_VERSION"
-    echo "|"
-    echo "|"
-    echo "|-----------------------------------------------------------------------"
-    echo "|"
-    echo "| The installer script will now proceed and:"
-    echo "|"
-    echo "| * clone the monorepo, ie: https://github.com/simplesurance/sisu"
-    echo "| * ensure your environment is properly configured"
-    echo "| * ensure your system meets the minimum requirements"
-    echo "| * install the required dependencies to run the dev stack"
-    echo "|"
-    echo "|"
-    echo "| If the installation fails just re run this script to resume it!"
-    echo "|"
-    echo "|"
-    echo "| Coffee? Mate?"
-    echo "| Make yourself confortable, this might take a while!"
-    echo "|"
-    echo "'-----------------------------------------------------------------------"
-    echo
+    cat <<EOF
+.========================== WORKSPACE INSTALLER ============================
+│
+│  Install path:        $INSTALL_PATH
+│  Checkout path:       $CHECKOUT_PATH
+│  Repository version:  $REPO_VERSION
+│  Installer version:   $(sha1sum "$SCRIPT_FILE" | awk '{print $1}')
+│
+├───────────────────────────────────────────────────────────────────────────
+│
+│
+│ The installer script will now proceed and:
+│
+│ * clone the monorepo, ie: https://github.com/simplesurance/sisu
+│ * ensure your environment is properly configured
+│ * ensure your system meets the minimum requirements
+│ * install the required dependencies to run the dev stack
+│
+│
+│ IMPORTANT: If the installation fails just re run this script to resume it!
+│
+│ IMPORTANT: Be sure to read the instructions displayed at the end
+│            of the installer script to finish your setup.
+│
+│
+│ Coffee? Mate?
+│ Make yourself confortable, this might take a while!
+│
+│
+└────────────────────────────────────────────────────────────────────────────
+
+EOF
+
     prompt_continue
     echo
     echo
@@ -85,8 +99,8 @@ function install() {
 
 
 parse_args "$@"
-banner
 init
+banner
 checkout
 install
 
