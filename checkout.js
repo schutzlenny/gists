@@ -40,6 +40,6 @@ _sdbag.push(['init', 'checkout']); // When the "page" parameter set to "cart" or
  
 (function() {
     var ss = document.createElement('script'); ss.type = 'text/javascript'; ss.async = true;
-    ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://')  + 'www.simplesurance.de/jsapi/sisu-checkout-2.x.min.js';
+    ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://')  + 'jsapi.simplesurance.de/sisu-checkout-2.x.min.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ss, s);
 })();
